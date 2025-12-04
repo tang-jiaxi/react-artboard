@@ -137,7 +137,7 @@ export const Artboard = forwardRef(function Artboard(
       return;
     }
     context.save();
-    context.fillStyle = "#ffffff";
+    context.fillStyle = "rgba(255, 255, 255, 0)";
     context.fillRect(0, 0, canvas.width, canvas.height);
     context.restore();
     if (canvas && history) {
@@ -158,7 +158,7 @@ export const Artboard = forwardRef(function Artboard(
       if (!ctx) {
         return;
       }
-      ctx.fillStyle = "#ffffff";
+      ctx.fillStyle = "rgba(255, 255, 255, 0)";
       ctx.fillRect(0, 0, canvasRef.width, canvasRef.height);
       ctx.fillStyle = "transparent";
       if (history) {
