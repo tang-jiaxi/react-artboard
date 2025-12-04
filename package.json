@@ -3,7 +3,13 @@
   "version": "0.1.1",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.module.js",
-  "exports": "./dist/index.modern.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.module.js",
+      "require": "./dist/index.umd.js",
+      "default": "./dist/index.modern.js"
+    }
+  },
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
@@ -11,11 +17,9 @@
   "author": "Matt Kane <m@mk.gg>",
   "license": "MIT",
   "scripts": {
-    "clean": "rm -rf dist/* public/*",
     "start": "parcel example/index.html --host 0.0.0.0 --out-dir public",
     "build:example": "parcel build example/index.html --out-dir public",
-    "build:library": "microbundle --jsx React.createElement src/index.ts",
-    "prepare": "yarn clean && yarn build:library"
+    "build:library": "microbundle --jsx React.createElement src/index.ts"
   },
   "devDependencies": {
     "@babel/core": "^7.14.0",
